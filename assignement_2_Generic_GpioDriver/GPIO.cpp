@@ -12,6 +12,7 @@ extern "C"
     extern void ARM_digitalWrite(int pinNum , int pinMode);
     extern int ARM_digitalRead(int pinNum);
 }
+
 void GPIO::pinMode(int pinNum , int pinMode)
 {
     #ifdef _GPIO_AVR_H_
@@ -21,7 +22,7 @@ void GPIO::pinMode(int pinNum , int pinMode)
         ARM_pinMode(pinNum , pinMode);
     #endif
 }
-void digitalWrite(int pinNum , int pinMode)
+void GPIO::digitalWrite(int pinNum , int pinMode)
 {
     #ifdef _GPIO_AVR_H_
         AVR_digitalWrite(pinNum , pinMode);
@@ -30,7 +31,7 @@ void digitalWrite(int pinNum , int pinMode)
         ARM_digitalWrite(pinNum , pinMode);
     #endif
 }
-int  digitalRead(int pinNum)
+int  GPIO::digitalRead(int pinNum)
 {
     #ifdef _GPIO_AVR_H_
         AVR_digitalRead(pinNum);
